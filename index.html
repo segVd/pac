@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pixel Art Convertor</title>
+<title>Pixel Art Pattern Generator</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
-    <h1 class="header__title">Pixel Art Convertor</h1>
+    <h1 class="header__title">Pixel Art Pattern Generator</h1>
     <p class="header__subtitle">Turn any image into a gridded, colour limited pattern.</p>
   </header>
 
@@ -20,8 +20,46 @@
       </div>
 
       <div class="field">
+        <span class="field__label">Source area</span>
+        <div class="seg">
+          <label>
+            <input type="radio" name="mode" value="whole" checked>
+            <span>Whole image</span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="area">
+            <span>Select area</span>
+          </label>
+        </div>
+        <canvas class="source" id="src" width="320" height="180"></canvas>
+      </div>
+
+      <div id="areaControls" hidden>
+        <div class="field">
+          <label class="field__label" for="z">
+            Zoom <span class="field__value" id="zVal">1.0x</span>
+          </label>
+          <input class="range" type="range" id="z" min="1" max="4" step="0.1" value="1">
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="x">
+            Left / right <span class="field__value" id="xVal">50</span>
+          </label>
+          <input class="range" type="range" id="x" min="0" max="100" value="50">
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="y">
+            Up / down <span class="field__value" id="yVal">50</span>
+          </label>
+          <input class="range" type="range" id="y" min="0" max="100" value="50">
+        </div>
+      </div>
+
+      <div class="field">
         <label class="field__label" for="g">
-          Grid size <span class="field__value" id="gVal">48</span>
+          Grid size (longest side) <span class="field__value" id="gVal">48</span>
         </label>
         <input class="range" type="range" id="g" min="16" max="96" value="48">
       </div>
